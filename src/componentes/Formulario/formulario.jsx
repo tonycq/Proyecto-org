@@ -1,18 +1,26 @@
 import { useState } from "react";
 import "./formulario.css"
 import CampoTexto from "../CampoTexto/campoTexto";
-import ListaOpcines from "../ListaOpciones"; 
+import ListaOpciones from "../ListaOpciones"; 
 import Boton from "../Boton";  
 
 const Formulario = () => {
     const [nombre,actualizarNombre] =useState("")
     const [puesto,actualizarPuesto] =useState("")
     const [foto,actualizarFoto] =useState("")
-    
+    const [equipos,actualizarEquipos] =useState("")
     
     const manejarEnvio = (e) =>{
-        evento.preventDefault()
-        
+        e.preventDefault()
+     
+        let datosAEnviar ={
+            nombre,
+            puesto,
+            foto,
+            equipos
+
+        }
+        console.log(datosAEnviar)
     }
 
     return <section className="formulario">
@@ -39,7 +47,12 @@ const Formulario = () => {
                 valor={foto} 
                 actualizarValor={actualizarFoto}
             />
-            <ListaOpcines/>
+            <ListaOpciones
+                valor ={equipos}
+                actualizarEquipos={actualizarEquipos}
+                      
+            
+            />
             <Boton>
                 Crear
             </Boton>       
